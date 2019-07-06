@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - UI", "1 - UI", "{C42EC69C-9AAC-4D48-8CB4-99729D35C922}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{A3686789-EA5F-46D9-A8B4-38D3C031A0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RumoATI.ETB.Domain", "RumoATI.ETB.Domain\RumoATI.ETB.Domain.csproj", "{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{479549EF-FBC3-4E41-8CEA-3CC8B57BB23A} = {A3686789-EA5F-46D9-A8B4-38D3C031A0A9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66205930-7BE5-49C3-A8E9-094916F15EB4}
+	EndGlobalSection
+EndGlobal
