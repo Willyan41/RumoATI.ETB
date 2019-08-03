@@ -19,7 +19,9 @@ namespace RumoATI.ETB.Domain2.Gerenciador
             {
                 if (professor != null)
                 {
-                    _context.Professors.Add(professor);
+                    if(professor.Id == 0)
+                        _context.Professors.Add(professor);
+
                     _context.SaveChanges();
                 }
             }
@@ -38,9 +40,9 @@ namespace RumoATI.ETB.Domain2.Gerenciador
         {
             return _context.Professors.Select(p => new Professor
             {
-                Id = p.Id,
-                Email = p.Email,
-                Nome = p.Nome,
+                Id        = p.Id,
+                Email     = p.Email,
+                Nome      = p.Nome,
                 SobreNome = p.SobreNome
             });
         }
