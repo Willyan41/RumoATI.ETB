@@ -28,12 +28,34 @@ namespace RumoATI.ETB.Web.Controllers
             return View(new ProfessorViewModel { Professores = professores });
         }
 
+        [HttpGet]
+        public IActionResult Add(int Id)
+        {
+            var p = gerenciadorProfessor.RecuperarPorId(Id);
+            var model = new ProfessorViewModel
+            {
+                Id = p.Id,
+                Nome = p.Nome,
+                SobreNome = p.SobreNome,
+                Email = p.Email
+            };
+
+            return PartialView(model);
+        }
+
         [HttpPost]
         public IActionResult Add(ProfessorViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var p = new Professor();
+                Professor p = null;
+
+                if (model.Id > 0)
+                    p = gerenciadorProfessor.RecuperarPorId(model.Id);
+                else
+                    p = new Professor();
+
+
                 p.Nome = model.Nome;
                 p.SobreNome = model.SobreNome;
                 p.Email = model.Email;
@@ -42,13 +64,6 @@ namespace RumoATI.ETB.Web.Controllers
             }
 
             return RedirectToAction("Index");
-        }
-
-        public IActionResult Update(int id)
-        {
-            var p = gerenciadorProfessor.RecuperarPorId(id);
-
-            return PartialView(p);
         }
     }
 }

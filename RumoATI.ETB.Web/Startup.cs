@@ -27,6 +27,7 @@ namespace RumoATI.ETB.Web
             }
 
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
     }
 }
