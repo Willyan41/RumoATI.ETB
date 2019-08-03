@@ -5,9 +5,8 @@ using System.Linq;
 
 namespace RumoATI.ETB.Domain2.Gerenciador
 {
-    public class ProfessorGerenciador
+    public class ProfessorGerenciador : GerenciadorBase
     {
-        ETBContext _context;
         public ProfessorGerenciador()
         {
             _context = new ETBContext();
