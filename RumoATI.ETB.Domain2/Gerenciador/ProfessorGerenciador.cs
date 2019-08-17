@@ -12,14 +12,36 @@ namespace RumoATI.ETB.Domain2.Gerenciador
             _context = new ETBContext();
         }
 
+        // TENTANDO FAZER O DELETE
+        public void Delete(Professor professor)
+        {
+            try
+            {
+                if (professor != null)
+                {
+                    _context.Professors.Remove(professor);
+
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        //finalizando a tentativa
+
         public void Add(Professor professor)
         {
             try
             {
                 if (professor != null)
                 {
-                    if(professor.Id == 0)
+                    if (professor.Id == 0)
                         _context.Professors.Add(professor);
+                    else
+                        _context.Update(professor);
 
                     _context.SaveChanges();
                 }

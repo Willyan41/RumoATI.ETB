@@ -20,6 +20,7 @@ namespace RumoATI.ETB.Domain2.Gerenciador
                 {
                     if (curso.Id == 0)
                         _context.Curso.Add(curso);
+
                     _context.SaveChanges();
                 }
             }

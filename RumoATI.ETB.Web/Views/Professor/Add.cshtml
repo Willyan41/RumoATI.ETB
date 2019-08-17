@@ -1,26 +1,28 @@
 ﻿@model RumoATI.ETB.Web.Models.ProfessorViewModel
 
-<form asp-controller="Professor" asp-action="Add" method="post">
-    <div>
-        <label asp-for="Nome">Nome</label>
-        <input asp-for="Nome" required />
-        <span asp-validation-for="Nome"></span>
-    </div>
+<form asp-controller="Professor" asp-action="Add" method="post" class="pure-form pure-form-aligned">
+    <fieldset>
+        <div class="pure-control-group">
+            <label asp-for="Nome">Nome</label>
+            <input asp-for="Nome" required />
+            <span asp-validation-for="Nome" class="pure-form-message-inline"></span>
+        </div>
 
-    <div>
-        <label asp-for="SobreNome">Último Nome</label>
-        <input asp-for="SobreNome" required />
-        <span asp-validation-for="SobreNome"></span>
-    </div>
+        <div class="pure-control-group">
+            <label asp-for="SobreNome">Último Nome</label>
+            <input asp-for="SobreNome" required />
+            <span asp-validation-for="SobreNome" class="pure-form-message-inline"></span>
+        </div>
 
-    <div>
-        <label asp-for="Email">Email</label>
-        <input type="email" asp-for="Email" required />
-        <span asp-validation-for="Email"></span>
-    </div>
+        <div class="pure-control-group">
+            <label asp-for="Email">Email</label>
+            <input type="email" asp-for="Email" required />
+            <span asp-validation-for="Email" class="pure-form-message-inline"></span>
+        </div>
 
-    <div>
-        <input type="submit" value="Salvar" />
-    </div>
-
+        <div class="pure-controls">
+            <input type="submit" value="Salvar" class="pure-button pure-button-primary"/>
+            <input type="submit" value="Delete" class="button-error pure-button"/>
+        </div>
+    </fieldset>
 </form>

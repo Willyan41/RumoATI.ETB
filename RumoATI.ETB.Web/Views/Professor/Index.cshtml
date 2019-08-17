@@ -11,7 +11,7 @@
 </div>
 
 <div>
-    <table>
+    <table class="pure-table pure-table-bordered">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -30,7 +30,7 @@
                         <td>@p.SobreNome</td>
                         <td>@p.Email</td>
                         <td>
-                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-professor" href='@Url.Action("Add", "Professor", new { Id = p.Id })'>[update]</a>
+                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-professor" href='@Url.Action("Add", "Professor", new { Id = p.Id })'><i class="material-icons">build</i></a>
                         </td>
                     </tr>
                 }

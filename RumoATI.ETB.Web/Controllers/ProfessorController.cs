@@ -19,10 +19,10 @@ namespace RumoATI.ETB.Web.Controllers
             var professores = gerenciadorProfessor.RecuperarProfessores()
                 .Select(p => new ProfessorViewModel()
                 {
-                    Id = p.Id,
+                    Id        = p.Id,
                     SobreNome = p.SobreNome,
-                    Nome = p.Nome,
-                    Email = p.Email
+                    Nome      = p.Nome,
+                    Email     = p.Email
                 });
 
             return View(new ProfessorViewModel { Professores = professores });
