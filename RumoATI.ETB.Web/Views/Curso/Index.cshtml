@@ -1,0 +1,39 @@
+﻿@model RumoATI.ETB.Web.Models.CursoViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Bem vindo a nossa página de Cursos</h2>
+
+<div id="add-professor">
+    @Html.Partial("Add", Model)
+</div>
+
+<div>
+    <table class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Cursos.Any())
+            {
+                foreach (var p in Model.Cursos)
+                {
+                    <tr>
+                        <td>@p.Nome</td>
+                        <td>@p.Descricao</td>
+                        <td>
+                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-professor" href='@Url.Action("Add", "Curso", new { Id = p.Id })'><i class="material-icons">build</i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

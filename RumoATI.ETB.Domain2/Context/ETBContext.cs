@@ -13,7 +13,7 @@ namespace RumoATI.ETB.Domain2.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProfessorMap());
-            
+            modelBuilder.ApplyConfiguration(new CursoMap());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

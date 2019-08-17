@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Curso\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

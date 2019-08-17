@@ -1,0 +1,22 @@
+﻿@model RumoATI.ETB.Web.Models.CursoViewModel
+
+<form asp-controller="Curso" asp-action="Add" method="post" class="pure-form pure-form-aligned">
+    <fieldset>
+        <div class="pure-control-group">
+            <label asp-for="Nome">Nome</label>
+            <input asp-for="Nome" required />
+            <span asp-validation-for="Nome" class="pure-form-message-inline"></span>
+        </div>
+
+        <div class="pure-control-group">
+            <label asp-for="Descricao">Descrição</label>
+            <textarea cols="22" rows="5" asp-for="Descricao" required></textarea>
+            <span asp-validation-for="Descricao" class="pure-form-message-inline"></span>
+        </div>
+
+        <div class="pure-controls">
+            <input type="submit" value="Salvar" class="pure-button pure-button-primary" />
+            <input type="submit" value="Delete" class="button-error pure-button" />
+        </div>
+    </fieldset>
+</form>

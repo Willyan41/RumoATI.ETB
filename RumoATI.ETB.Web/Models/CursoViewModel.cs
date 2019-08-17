@@ -11,10 +11,8 @@ namespace RumoATI.ETB.Web.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string Descricao { get; set; }
-        [Required]
-
-        public IQueryable<CursoViewModel> Curso { get; set; }
+        public IQueryable<CursoViewModel> Cursos { get; set; }
     }
 }

@@ -18,21 +18,22 @@ namespace RumoATI.ETB.Web.Controllers
         }
         public IActionResult Index()
         {
-            {
-                var Curso = gerenciadorCurso.RecuperarCurso()
-                    .Select(c => new CursoViewModel()
-                    {
-                        Id = c.Id,
-                        Nome = c.Nome,
-                        Descricao = c.Descricao
-                    });
-                return View(new CursoViewModel { Curso = curso });
-            }
+            var cursos = gerenciadorCurso.RecuperarCurso()
+                .Select(c => new CursoViewModel()
+                {
+                    Id = c.Id,
+                    Nome = c.Nome,
+                    Descricao = c.Descricao
+                });
+
+            var model = new CursoViewModel { Cursos = cursos };
+
+            return View(model);
         }
 
         [HttpGet]
         public IActionResult Add(int Id)
-        { 
+        {
             var c = gerenciadorCurso.RecuperarPorID(Id);
             var model = new CursoViewModel
             {
@@ -43,8 +44,8 @@ namespace RumoATI.ETB.Web.Controllers
 
             return PartialView(model);
         }
-                      
-        [HttpGet]
+
+        [HttpPost]
         public ActionResult Add(CursoViewModel model)
         {
             if (ModelState.IsValid)
@@ -58,7 +59,7 @@ namespace RumoATI.ETB.Web.Controllers
 
                 c.Nome = model.Nome;
                 c.Descricao = model.Descricao;
-                
+
 
                 gerenciadorCurso.Add(c);
             }
