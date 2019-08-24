@@ -24,6 +24,14 @@ namespace RumoATI.ETB.Domain2.Map
 
             builder.Property(p => p.Email)
                    .HasColumnName("EMAIL_PROFESSOR");
+
+            builder.HasMany(pc => pc.ProfessoresCurso)
+                        .WithOne(p => p.Professor)
+                        .HasForeignKey(fk => fk.IdProfessor);
+
+            builder.HasOne(u => u.Usuario)
+                   .WithOne(p => p.Professor)
+                   .HasForeignKey<Professor>(fk => fk.Id);
         }
     }
 }

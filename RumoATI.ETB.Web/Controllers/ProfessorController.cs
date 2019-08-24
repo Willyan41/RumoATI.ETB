@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RumoATI.ETB.Domain2.Entidades;
+using RumoATI.ETB.Domain2.Enum;
 using RumoATI.ETB.Domain2.Gerenciador;
 using RumoATI.ETB.Web.Models;
 using System.Linq;
@@ -59,6 +60,13 @@ namespace RumoATI.ETB.Web.Controllers
                 p.Nome = model.Nome;
                 p.SobreNome = model.SobreNome;
                 p.Email = model.Email;
+
+                p.Usuario          = new Usuario();
+                p.Usuario.IdPerfil = (int)EPerfil.Professor;
+                p.Usuario.Nome     = model.Nome;
+
+
+
 
                 gerenciadorProfessor.Add(p);
             }

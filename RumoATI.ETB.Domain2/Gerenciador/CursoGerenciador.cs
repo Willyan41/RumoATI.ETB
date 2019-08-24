@@ -44,5 +44,22 @@ namespace RumoATI.ETB.Domain2.Gerenciador
                 Descricao = p.Descricao
             });           
         }
+
+        public void Delete(Curso curso)
+        {
+            try
+            {
+                if (curso != null)
+                {
+                    _context.Curso.Remove(curso);
+
+                    _context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
   }

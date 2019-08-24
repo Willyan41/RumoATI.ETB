@@ -1,0 +1,35 @@
+﻿@model IQueryable<RumoATI.ETB.Web.Models.CursoViewModel>
+
+<table class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Nome</td>
+                    <td>@p.Descricao</td>
+                    <td>
+                        <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-curso" href='@Url.Action("Add", "Curso", new { Id = p.Id })' title="alterar curso">
+                            <i class="material-icons">
+                                create
+                            </i>
+                        </a>
+                        <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#cnt-curso" href='@Url.Action("Delete", "Curso", new { Id = p.Id })' title="deletar curso" data-ajax-confirm="Deseja realmente excluir este curso?">
+                            <i class="material-icons">
+                                restore_from_trash
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

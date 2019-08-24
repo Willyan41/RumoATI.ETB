@@ -24,8 +24,11 @@ namespace RumoATI.ETB.Domain2.Map
 
                 builder.Property(p => p.Descricao)
                        .HasColumnName("DESCRICAO_CURSO");
-                          
-            
+
+            builder.HasMany(pc => pc.ProfessoresCurso)
+                .WithOne(c => c.Curso)
+                .HasForeignKey(fk => fk.IdCurso);
+
         }
     }
 }

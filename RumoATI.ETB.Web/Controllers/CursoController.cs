@@ -65,7 +65,29 @@ namespace RumoATI.ETB.Web.Controllers
             }
 
             return RedirectToAction("Index");
+        }
 
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var curso = gerenciadorCurso.RecuperarPorID(id);
+
+            if (curso != null)
+            {
+                gerenciadorCurso.Delete(curso);
+
+                var cursos = gerenciadorCurso.RecuperarCurso()
+                                .Select(c => new CursoViewModel()
+                                {
+                                    Id = c.Id,
+                                    Nome = c.Nome,
+                                    Descricao = c.Descricao
+                                });
+
+                return PartialView("Cursos", cursos);
+            }
+
+            return BadRequest("Erro ao deletar Curso");
         }
     }
 }
