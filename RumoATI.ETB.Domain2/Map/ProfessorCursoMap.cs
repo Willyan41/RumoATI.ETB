@@ -15,6 +15,12 @@ namespace RumoATI.ETB.Domain2.Map
             builder.ToTable("BS_003_PROFESSOR_CURSO");
 
             builder.HasKey(k => new { k.IdCurso, k.IdProfessor });
+
+            builder.Property(p => p.IdProfessor)
+                   .HasColumnName("ID_PROFESSOR");
+
+            builder.Property(p => p.IdCurso)
+                   .HasColumnName("ID_CURSO");
         }
     }
 }

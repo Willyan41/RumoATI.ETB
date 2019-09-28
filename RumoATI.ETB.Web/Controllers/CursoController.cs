@@ -18,7 +18,7 @@ namespace RumoATI.ETB.Web.Controllers
         }
         public IActionResult Index()
         {
-            var cursos = gerenciadorCurso.RecuperarCurso()
+            var cursos = gerenciadorCurso.RecuperarCursos()
                 .Select(c => new CursoViewModel()
                 {
                     Id = c.Id,
@@ -76,7 +76,7 @@ namespace RumoATI.ETB.Web.Controllers
             {
                 gerenciadorCurso.Delete(curso);
 
-                var cursos = gerenciadorCurso.RecuperarCurso()
+                var cursos = gerenciadorCurso.RecuperarCursos()
                                 .Select(c => new CursoViewModel()
                                 {
                                     Id = c.Id,

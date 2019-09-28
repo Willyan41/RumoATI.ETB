@@ -35,7 +35,7 @@ namespace RumoATI.ETB.Domain2.Gerenciador
             return _context.Curso.Find(id);
 
         }
-        public IQueryable<Curso> RecuperarCurso()
+        public IQueryable<Curso> RecuperarCursos()
         {
             return _context.Curso.Select(p => new Curso
             {

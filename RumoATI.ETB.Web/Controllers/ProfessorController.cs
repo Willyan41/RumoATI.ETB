@@ -10,9 +10,11 @@ namespace RumoATI.ETB.Web.Controllers
     public class ProfessorController : Controller
     {
         ProfessorGerenciador gerenciadorProfessor;
+        CursoGerenciador gerenciadorCurso; 
         public ProfessorController()
         {
             gerenciadorProfessor = new ProfessorGerenciador();
+            gerenciadorCurso     = new CursoGerenciador();
         }
 
         public IActionResult Index()
@@ -26,7 +28,11 @@ namespace RumoATI.ETB.Web.Controllers
                     Email     = p.Email
                 });
 
-            return View(new ProfessorViewModel { Professores = professores });
+            var model         = new ProfessorViewModel();
+            model.Cursos      = gerenciadorCurso.RecuperarCursos();
+            model.Professores = professores;
+
+            return View(model);
         }
 
         [HttpGet]
@@ -38,7 +44,9 @@ namespace RumoATI.ETB.Web.Controllers
                 Id = p.Id,
                 Nome = p.Nome,
                 SobreNome = p.SobreNome,
-                Email = p.Email
+                Email = p.Email,
+                Cursos = gerenciadorCurso.RecuperarCursos(),
+                CursoSelecionados = p.ProfessoresCurso.Select(cs => cs.IdCurso).ToArray()
             };
 
             return PartialView(model);
@@ -54,19 +62,24 @@ namespace RumoATI.ETB.Web.Controllers
                 if (model.Id > 0)
                     p = gerenciadorProfessor.RecuperarPorId(model.Id);
                 else
+                {
                     p = new Professor();
+                    p.Usuario = new Usuario();
+                    p.Usuario.IdPerfil = (int)EPerfil.Professor;
+                    p.Usuario.Nome = model.Nome;
+                }
 
-
-                p.Nome = model.Nome;
+                p.Nome      = model.Nome;
                 p.SobreNome = model.SobreNome;
-                p.Email = model.Email;
+                p.Email     = model.Email;
 
-                p.Usuario          = new Usuario();
-                p.Usuario.IdPerfil = (int)EPerfil.Professor;
-                p.Usuario.Nome     = model.Nome;
-
-
-
+                if (model.CursoSelecionados != null && model.CursoSelecionados.Length > 0)
+                {
+                    foreach (var cs in model.CursoSelecionados)
+                    {
+                        p.ProfessoresCurso.Add(new ProfessorCurso { IdCurso = cs, Professor = p });
+                    }
+                }
 
                 gerenciadorProfessor.Add(p);
             }

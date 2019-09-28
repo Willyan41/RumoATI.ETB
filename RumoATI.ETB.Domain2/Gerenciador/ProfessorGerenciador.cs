@@ -1,4 +1,5 @@
-﻿using RumoATI.ETB.Domain2.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using RumoATI.ETB.Domain2.Context;
 using RumoATI.ETB.Domain2.Entidades;
 using System;
 using System.Linq;
@@ -54,7 +55,10 @@ namespace RumoATI.ETB.Domain2.Gerenciador
 
         public Professor RecuperarPorId(int id)
         {
-            return _context.Professors.Find(id);
+            return _context.Professors
+                           .Include(pc => pc.ProfessoresCurso)
+                           .Include("ProfessoresCurso.Curso")
+                           .FirstOrDefault(x => x.Id == id);
         }
 
         public IQueryable<Professor> RecuperarProfessores()

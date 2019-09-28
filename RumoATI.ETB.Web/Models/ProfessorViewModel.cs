@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using umoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Web.Models
 {
@@ -13,6 +15,8 @@ namespace RumoATI.ETB.Web.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Email { get; set; }
 
+        public IQueryable<Curso> Cursos { get; set; }
+        public int[] CursoSelecionados { get; set; }
         public IQueryable<ProfessorViewModel> Professores { get; set; }
     }
 }

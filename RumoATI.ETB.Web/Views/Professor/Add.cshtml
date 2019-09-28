@@ -20,9 +20,34 @@
             <span asp-validation-for="Email" class="pure-form-message-inline"></span>
         </div>
 
+        @if (Model.Cursos.Any())
+        {
+            @foreach (var curso in Model.Cursos)
+            {
+                if (Model.CursoSelecionados != null && Model.CursoSelecionados.Length > 0)
+                {
+                    foreach (var cs in Model.CursoSelecionados)
+                    {
+                        if (curso.Id == cs)
+                        {
+                            <input type="checkbox" name="CursoSelecionados" value="@curso.Id" checked />@curso.Nome
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="CursoSelecionados" value="@curso.Id" />@curso.Nome
+                        }
+                    }
+                }
+                else
+                {
+                    <input type="checkbox" name="CursoSelecionados" value="@curso.Id" />@curso.Nome
+                }
+            }
+        }
+
         <div class="pure-controls">
-            <input type="submit" value="Salvar" class="pure-button pure-button-primary"/>
-            <input type="submit" value="Delete" class="button-error pure-button"/>
+            <input type="submit" value="Salvar" class="pure-button pure-button-primary" />
+            <input type="submit" value="Delete" class="button-error pure-button" />
         </div>
     </fieldset>
 </form>
