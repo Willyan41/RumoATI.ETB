@@ -16,7 +16,8 @@ namespace RumoATI.ETB.Domain2.Map
             builder.HasKey(k => k.Id);
 
             builder.Property(p => p.Descricao)
-                   .HasColumnName("DESCRICAO");
+                   .HasColumnName("DESCRICAO")
+                   .HasColumnType("VARCHAR(200)");
         }
     }
 }

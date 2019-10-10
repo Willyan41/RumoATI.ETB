@@ -26,9 +26,15 @@
                 <input asp-for="Password" placeholder="password" class="fadeIn second" required />
                 <span asp-validation-for="Password" class="pure-form-message-inline"></span>
                 <input type="submit" class="fadeIn fourth" value="Log In">
+
+                @if (Model != null && !string.IsNullOrEmpty(Model.Messagem))
+                {
+                    <div>@Model.Messagem</div>
+                }
+
             </form>
 
-            <!-- Remind Passowrd -->
+            <!-- Remind Password -->
             <div id="formFooter">
                 <a class="underlineHover" href="#">Forgot Password?</a>
             </div>

@@ -2,7 +2,7 @@
 
 namespace RumoATI.ETB.Domain2.Gerenciador
 {
-    public class GerenciadorBase
+    public class BaseGerenciador
     {
         protected ETBContext _context;
     }

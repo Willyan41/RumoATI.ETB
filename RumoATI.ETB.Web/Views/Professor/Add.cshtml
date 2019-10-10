@@ -4,20 +4,17 @@
     <fieldset>
         <div class="pure-control-group">
             <label asp-for="Nome">Nome</label>
-            <input asp-for="Nome" required />
-            <span asp-validation-for="Nome" class="pure-form-message-inline"></span>
+            <input asp-for="Nome" required class="pure-input-2-3"/>
         </div>
 
         <div class="pure-control-group">
             <label asp-for="SobreNome">Último Nome</label>
-            <input asp-for="SobreNome" required />
-            <span asp-validation-for="SobreNome" class="pure-form-message-inline"></span>
+            <input asp-for="SobreNome" required class="pure-input-2-3"/>
         </div>
 
         <div class="pure-control-group">
             <label asp-for="Email">Email</label>
-            <input type="email" asp-for="Email" required />
-            <span asp-validation-for="Email" class="pure-form-message-inline"></span>
+            <input type="email" asp-for="Email" required class="pure-input-2-3" />
         </div>
 
         @if (Model.Cursos.Any())

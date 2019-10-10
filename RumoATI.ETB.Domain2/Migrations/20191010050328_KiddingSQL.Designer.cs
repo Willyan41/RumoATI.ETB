@@ -9,7 +9,7 @@ using RumoATI.ETB.Domain2.Context;
 namespace RumoATI.ETB.Domain2.Migrations
 {
     [DbContext(typeof(ETBContext))]
-    [Migration("20191010020833_KiddingSQL")]
+    [Migration("20191010050328_KiddingSQL")]
     partial class KiddingSQL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,8 @@ namespace RumoATI.ETB.Domain2.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao")
-                        .HasColumnName("DESCRICAO");
+                        .HasColumnName("DESCRICAO")
+                        .HasColumnType("VARCHAR(200)");
 
                     b.HasKey("Id");
 
@@ -40,13 +41,16 @@ namespace RumoATI.ETB.Domain2.Migrations
                         .HasColumnName("ID_PROFESSOR");
 
                     b.Property<string>("Email")
-                        .HasColumnName("EMAIL_PROFESSOR");
+                        .HasColumnName("EMAIL_PROFESSOR")
+                        .HasColumnType("VARCHAR(120)");
 
                     b.Property<string>("Nome")
-                        .HasColumnName("NOME_PROFESSOR");
+                        .HasColumnName("NOME_PROFESSOR")
+                        .HasColumnType("VARCHAR(120)");
 
                     b.Property<string>("SobreNome")
-                        .HasColumnName("SOBRENOME_PROFESSOR");
+                        .HasColumnName("SOBRENOME_PROFESSOR")
+                        .HasColumnType("VARCHAR(50)");
 
                     b.HasKey("Id");
 
@@ -78,8 +82,17 @@ namespace RumoATI.ETB.Domain2.Migrations
                     b.Property<int>("IdPerfil")
                         .HasColumnName("ID_PERFIL");
 
+                    b.Property<string>("Login")
+                        .HasColumnName("LOGIN")
+                        .HasColumnType("VARCHAR(8)");
+
                     b.Property<string>("Nome")
-                        .HasColumnName("NOME_USUARIO");
+                        .HasColumnName("NOME_USUARIO")
+                        .HasColumnType("VARCHAR(120)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnName("DESC_SENHA")
+                        .HasColumnType("VARCHAR(120)");
 
                     b.HasKey("Id");
 
@@ -96,10 +109,12 @@ namespace RumoATI.ETB.Domain2.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao")
-                        .HasColumnName("DESCRICAO_CURSO");
+                        .HasColumnName("DESCRICAO_CURSO")
+                        .HasColumnType("VARCHAR(250)");
 
                     b.Property<string>("Nome")
-                        .HasColumnName("NOME_CURSO");
+                        .HasColumnName("NOME_CURSO")
+                        .HasColumnType("VARCHAR(120)");
 
                     b.HasKey("Id");
 

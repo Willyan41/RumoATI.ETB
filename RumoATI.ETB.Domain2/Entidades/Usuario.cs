@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RumoATI.ETB.Domain2.Entidades
+﻿namespace RumoATI.ETB.Domain2.Entidades
 {
     public class Usuario : EntidadeBase
     {
@@ -10,5 +6,8 @@ namespace RumoATI.ETB.Domain2.Entidades
         public int IdPerfil { get; set; }
         public Perfil Perfil { get; set; }
         public Professor Professor { get; set; }
+
+        public string Login { get; set; }
+        public string Senha { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using umoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Domain2.Gerenciador
 {
-    public class CursoGerenciador : GerenciadorBase
+    public class CursoGerenciador : BaseGerenciador
     {
         public CursoGerenciador()
         {

@@ -20,10 +20,12 @@ namespace RumoATI.ETB.Domain2.Map
                        .HasColumnName("ID_CURSO");
 
                 builder.Property(p => p.Nome)
-                       .HasColumnName("NOME_CURSO");
+                       .HasColumnName("NOME_CURSO")
+                       .HasColumnType("VARCHAR(120)");
 
-                builder.Property(p => p.Descricao)
-                       .HasColumnName("DESCRICAO_CURSO");
+            builder.Property(p => p.Descricao)
+                       .HasColumnName("DESCRICAO_CURSO")
+                       .HasColumnType("VARCHAR(250)");
 
             builder.HasMany(pc => pc.ProfessoresCurso)
                 .WithOne(c => c.Curso)

@@ -17,13 +17,16 @@ namespace RumoATI.ETB.Domain2.Map
                    .HasColumnName("ID_PROFESSOR");
 
             builder.Property(p => p.Nome)
-                   .HasColumnName("NOME_PROFESSOR");
+                   .HasColumnName("NOME_PROFESSOR")
+                   .HasColumnType("VARCHAR(120)");
 
             builder.Property(p => p.SobreNome)
-                   .HasColumnName("SOBRENOME_PROFESSOR");
+                   .HasColumnName("SOBRENOME_PROFESSOR")
+                   .HasColumnType("VARCHAR(50)");
 
             builder.Property(p => p.Email)
-                   .HasColumnName("EMAIL_PROFESSOR");
+                   .HasColumnName("EMAIL_PROFESSOR")
+                   .HasColumnType("VARCHAR(120)");
 
             builder.HasMany(pc => pc.ProfessoresCurso)
                         .WithOne(p => p.Professor)

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RumoATI.ETB.Domain2.Gerenciador
 {
-    public class ProfessorGerenciador : GerenciadorBase
+    public class ProfessorGerenciador : BaseGerenciador
     {
         public ProfessorGerenciador()
         {

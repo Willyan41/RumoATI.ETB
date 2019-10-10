@@ -22,7 +22,16 @@ namespace RumoATI.ETB.Domain2.Map
                    .HasColumnName("ID_PERFIL");
 
             builder.Property(p => p.Nome)
-                   .HasColumnName("NOME_USUARIO");
+                   .HasColumnName("NOME_USUARIO")
+                   .HasColumnType("VARCHAR(120)");
+
+            builder.Property(p => p.Senha)
+                .HasColumnName("DESC_SENHA")
+                .HasColumnType("VARCHAR(120)");
+
+            builder.Property(p => p.Login)
+                   .HasColumnName("LOGIN")
+                   .HasColumnType("VARCHAR(8)");
 
             builder.HasOne(p => p.Perfil)
                    .WithMany(u => u.Usuarios)

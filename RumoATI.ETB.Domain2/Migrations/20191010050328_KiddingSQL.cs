@@ -13,8 +13,8 @@ namespace RumoATI.ETB.Domain2.Migrations
                 {
                     ID_CURSO = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NOME_CURSO = table.Column<string>(nullable: true),
-                    DESCRICAO_CURSO = table.Column<string>(nullable: true)
+                    NOME_CURSO = table.Column<string>(type: "VARCHAR(120)", nullable: true),
+                    DESCRICAO_CURSO = table.Column<string>(type: "VARCHAR(250)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace RumoATI.ETB.Domain2.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DESCRICAO = table.Column<string>(nullable: true)
+                    DESCRICAO = table.Column<string>(type: "VARCHAR(200)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,8 +40,10 @@ namespace RumoATI.ETB.Domain2.Migrations
                 {
                     ID_USUARIO = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    NOME_USUARIO = table.Column<string>(nullable: true),
-                    ID_PERFIL = table.Column<int>(nullable: false)
+                    NOME_USUARIO = table.Column<string>(type: "VARCHAR(120)", nullable: true),
+                    ID_PERFIL = table.Column<int>(nullable: false),
+                    LOGIN = table.Column<string>(type: "VARCHAR(8)", nullable: true),
+                    DESC_SENHA = table.Column<string>(type: "VARCHAR(120)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -59,9 +61,9 @@ namespace RumoATI.ETB.Domain2.Migrations
                 columns: table => new
                 {
                     ID_PROFESSOR = table.Column<int>(nullable: false),
-                    NOME_PROFESSOR = table.Column<string>(nullable: true),
-                    SOBRENOME_PROFESSOR = table.Column<string>(nullable: true),
-                    EMAIL_PROFESSOR = table.Column<string>(nullable: true)
+                    NOME_PROFESSOR = table.Column<string>(type: "VARCHAR(120)", nullable: true),
+                    SOBRENOME_PROFESSOR = table.Column<string>(type: "VARCHAR(50)", nullable: true),
+                    EMAIL_PROFESSOR = table.Column<string>(type: "VARCHAR(120)", nullable: true)
                 },
                 constraints: table =>
                 {
