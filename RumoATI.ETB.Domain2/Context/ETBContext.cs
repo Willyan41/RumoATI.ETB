@@ -24,7 +24,7 @@ namespace RumoATI.ETB.Domain2.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=BOMBINHA;Initial Catalog=BRINCANDO_SQL;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=UNIDADE_IDS;Initial Catalog=BRINCANDO_SQL;User Id=******;Password=*****;Integrated Security=True");
         }
     }
 }

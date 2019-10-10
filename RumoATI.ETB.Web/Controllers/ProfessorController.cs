@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RumoATI.ETB.Web.Controllers
 {
-    public class ProfessorController : Controller
+    public class ProfessorController : BaseController
     {
         ProfessorGerenciador gerenciadorProfessor;
         CursoGerenciador gerenciadorCurso; 

@@ -7,7 +7,7 @@ using umoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Web.Controllers
 {
-    public class CursoController : Controller
+    public class CursoController : BaseController
     {
         CursoGerenciador gerenciadorCurso;
         private readonly IQueryable<CursoViewModel> curso;
