@@ -4,12 +4,12 @@
     <fieldset>
         <div class="pure-control-group">
             <label asp-for="Nome">Nome</label>
-            <input asp-for="Nome" required class="pure-input-2-3"/>
+            <input asp-for="Nome" required class="pure-input-2-3" />
         </div>
 
         <div class="pure-control-group">
             <label asp-for="SobreNome">Último Nome</label>
-            <input asp-for="SobreNome" required class="pure-input-2-3"/>
+            <input asp-for="SobreNome" required class="pure-input-2-3" />
         </div>
 
         <div class="pure-control-group">
@@ -17,17 +17,28 @@
             <input type="email" asp-for="Email" required class="pure-input-2-3" />
         </div>
 
-        @if (Model.Cursos.Any())
-        {
-            @foreach (var curso in Model.Cursos)
-            {
-                if (Model.CursoSelecionados != null && Model.CursoSelecionados.Length > 0)
+        <div class="pure-controls">
+            Cursos
+
+            <label for="option-one" class="pure-checkbox">
+                @if (Model.Cursos.Any())
                 {
-                    foreach (var cs in Model.CursoSelecionados)
+                    @foreach (var curso in Model.Cursos)
                     {
-                        if (curso.Id == cs)
+                        if (Model.CursoSelecionados != null && Model.CursoSelecionados.Length > 0)
                         {
-                            <input type="checkbox" name="CursoSelecionados" value="@curso.Id" checked />@curso.Nome
+                            foreach (var cs in Model.CursoSelecionados)
+                            {
+
+                                if (curso.Id == cs)
+                                {
+                                    <input type="checkbox" name="CursoSelecionados" value="@curso.Id" checked />@curso.Nome
+                                }
+                                else
+                                {
+                                    <input type="checkbox" name="CursoSelecionados" value="@curso.Id" />@curso.Nome
+                                }
+                            }
                         }
                         else
                         {
@@ -35,16 +46,10 @@
                         }
                     }
                 }
-                else
-                {
-                    <input type="checkbox" name="CursoSelecionados" value="@curso.Id" />@curso.Nome
-                }
-            }
-        }
-
+            </label>
+        </div>
         <div class="pure-controls">
             <input type="submit" value="Salvar" class="pure-button pure-button-primary" />
-            <input type="submit" value="Delete" class="button-error pure-button" />
         </div>
     </fieldset>
 </form>

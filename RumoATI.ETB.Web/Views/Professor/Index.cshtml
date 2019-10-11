@@ -11,30 +11,33 @@
 </div>
 
 <div class="table-responsive">
-    <table class="pure-table pure-table-bordered">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>SobreNome</th>
-                <th>Email</th>
-                <th>Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Professores.Any())
-            {
-                foreach (var p in Model.Professores)
+    @if (Model.Professores.Any())
+    {
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>SobreNome</th>
+                    <th>Email</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Professores.Any())
                 {
-                    <tr>
-                        <td>@p.Nome</td>
-                        <td>@p.SobreNome</td>
-                        <td>@p.Email</td>
-                        <td>
-                            <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-professor" href='@Url.Action("Add", "Professor", new { Id = p.Id })'><i class="material-icons">build</i></a>
-                        </td>
-                    </tr>
+                    foreach (var p in Model.Professores)
+                    {
+                        <tr>
+                            <td>@p.Nome</td>
+                            <td>@p.SobreNome</td>
+                            <td>@p.Email</td>
+                            <td>
+                                <a data-ajax="true" data-ajax-method="GET" data-ajax-mode="replace" data-ajax-update="#add-professor" href='@Url.Action("Add", "Professor", new { Id = p.Id })'><i class="material-icons">build</i></a>
+                            </td>
+                        </tr>
+                    }
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
 </div>

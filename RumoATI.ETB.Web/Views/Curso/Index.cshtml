@@ -11,6 +11,9 @@
 </div>
 
 <div id="cnt-curso">
-    @Html.Partial("Cursos", Model.Cursos)
+    @if (Model.Cursos.Any())
+    {
+        @Html.Partial("Cursos", Model.Cursos)
+    }
 </div>
 
