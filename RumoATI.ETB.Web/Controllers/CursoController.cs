@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RumoATI.ETB.Domain2.Entidades;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using RumoATI.ETB.Domain2.Gerenciador;
 using RumoATI.ETB.Web.Models;
+using System;
+using System.IO;
 using System.Linq;
-using umoATI.ETB.Domain2.Entidades;
+using System.Threading.Tasks;
+using RumoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Web.Controllers
 {
     public class CursoController : BaseController
     {
         CursoGerenciador gerenciadorCurso;
-        private readonly IQueryable<CursoViewModel> curso;
+        private IHostingEnvironment _env;
 
-        public CursoController()
+        public CursoController(IHostingEnvironment env)
         {
             gerenciadorCurso = new CursoGerenciador();
+            _env = env;
         }
         public IActionResult Index()
         {
@@ -46,7 +50,7 @@ namespace RumoATI.ETB.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(CursoViewModel model)
+        public async Task<ActionResult> Add(CursoViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -60,6 +64,20 @@ namespace RumoATI.ETB.Web.Controllers
                 c.Nome = model.Nome;
                 c.Descricao = model.Descricao;
 
+                var root = _env.WebRootPath;
+                var path = Path.Combine(root, "imagens\\curso");
+                var name = Guid.NewGuid().ToString() + "_" + model.Foto.FileName;
+                var filePath = Path.Combine(path, name);
+
+                c.PathFoto = name;
+
+                if (Directory.Exists(path))
+                {
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await model.Foto.CopyToAsync(stream);
+                    }
+                }
 
                 gerenciadorCurso.Add(c);
             }

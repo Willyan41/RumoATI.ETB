@@ -2,7 +2,6 @@
 using RumoATI.ETB.Domain2.Entidades;
 using System;
 using System.Linq;
-using umoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Domain2.Gerenciador
 {
@@ -37,11 +36,12 @@ namespace RumoATI.ETB.Domain2.Gerenciador
         }
         public IQueryable<Curso> RecuperarCursos()
         {
-            return _context.Curso.Select(p => new Curso
+            return _context.Curso.Select(c => new Curso
             {
-                Id = p.Id,
-                Nome = p.Nome,
-                Descricao = p.Descricao
+                Id        = c.Id,
+                Nome      = c.Nome,
+                Descricao = c.Descricao,
+                PathFoto  = c.PathFoto
             });           
         }
 

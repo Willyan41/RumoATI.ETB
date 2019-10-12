@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RumoATI.ETB.Domain2.Entidades;
 using RumoATI.ETB.Domain2.Map;
-using umoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Domain2.Context
 {

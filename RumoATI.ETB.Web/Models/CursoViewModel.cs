@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace RumoATI.ETB.Web.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Descricao { get; set; }
         public IQueryable<CursoViewModel> Cursos { get; set; }
+
+        public IFormFile Foto { get; set; }
     }
 }

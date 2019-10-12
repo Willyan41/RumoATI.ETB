@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using umoATI.ETB.Domain2.Entidades;
+using RumoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Web.Models
 {

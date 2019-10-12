@@ -1,3 +1,30 @@
-﻿<div>
+﻿@model IQueryable<RumoATI.ETB.Domain2.Entidades.Curso>
+
+
+<div>
     Bem vindo a escola virtual
 </div>
+
+
+@if (Model.Any())
+{
+    foreach (var m in Model)
+    {
+
+        <div class="card">
+            @if (!string.IsNullOrEmpty(m.PathFoto))
+            {
+                <img src="~/imagens/curso/@m.PathFoto" style="width:100%" />
+            }
+            else
+            {
+                <img src="~/imagens/curso/no-imagem.jpg" style="width:100%;height:200px;" />
+            }
+
+            <div class="container">
+                <h4><b>@m.Nome</b></h4>
+                <p>@m.Descricao</p>
+            </div>
+        </div>
+    }
+}

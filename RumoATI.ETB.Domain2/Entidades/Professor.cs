@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using umoATI.ETB.Domain2.Entidades;
+using RumoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Domain2.Entidades
 {

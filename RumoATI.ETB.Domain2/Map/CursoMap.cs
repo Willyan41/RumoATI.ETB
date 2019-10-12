@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using umoATI.ETB.Domain2.Entidades;
+using RumoATI.ETB.Domain2.Entidades;
 
 namespace RumoATI.ETB.Domain2.Map
 {
@@ -26,6 +26,10 @@ namespace RumoATI.ETB.Domain2.Map
             builder.Property(p => p.Descricao)
                        .HasColumnName("DESCRICAO_CURSO")
                        .HasColumnType("VARCHAR(250)");
+
+            builder.Property(p => p.PathFoto)
+                .HasColumnName("PATH_IMAGEM")
+                .HasColumnType("VARCHAR(250)");
 
             builder.HasMany(pc => pc.ProfessoresCurso)
                 .WithOne(c => c.Curso)
